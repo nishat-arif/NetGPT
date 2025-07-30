@@ -1,6 +1,7 @@
 import Header from './Header'
 import LoginForm from './LoginForm';
 import React from 'react';
+import { backgroundImage } from '../utils/constants';
 
 const Login =()=>{
 
@@ -8,8 +9,8 @@ const Login =()=>{
         <div>
             <Header/>
             <div className="absolute"> 
-                <img src="https://assets.nflxext.com/ffe/siteui/vlv3/ad4b96d8-547c-4811-a738-9fd4d93731c5/web/US-en-20250721-TRIFECTA-perspective_9c9e6f85-98cd-4301-a831-9396a0a3a1df_large.jpg"
-                alt="background"/>    
+                <img src={backgroundImage}
+                alt="background-image" />    
             </div>
             <LoginForm/> 
         </div>
