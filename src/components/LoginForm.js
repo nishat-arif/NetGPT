@@ -41,7 +41,7 @@ const LoginForm =()=>{
                     const user = userCredential.user;
                     updateProfile(user, {
                             displayName: name.current.value , 
-                            photoURL: userImage || defaultUserImage
+                            photoURL: defaultUserImage
                             }).then(() => {
                                 const {uid , email, displayName, photoURL}= auth.currentUser;
                                 // update user from auth to store and navigate user to browse page as well
@@ -51,8 +51,6 @@ const LoginForm =()=>{
                                     displayName: displayName,
                                     photoURL : photoURL
                                 }));
-                
-                                navigate("/browse")
                             }).catch((error) => {
                                     const errorCode = error.code;
                                     const errorMessage = error.message;
@@ -72,7 +70,6 @@ const LoginForm =()=>{
             //signin
             signInWithEmailAndPassword(auth, email.current.value, password.current.value)
                 .then((userCredential) => {
-                    navigate("/browse")
                     
                 })
                 .catch((error) => {
