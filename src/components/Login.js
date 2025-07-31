@@ -9,7 +9,7 @@ const Login =()=>{
         <div>
             <Header/>
             <div className="absolute"> 
-                <img src={backgroundImage}
+                <img src={backgroundImage} className="h-screen object-fill w-screen"
                 alt="background-image" />    
             </div>
             <LoginForm/> 

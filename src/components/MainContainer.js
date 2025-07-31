@@ -8,8 +8,6 @@ const MainContainer = () =>{
 
     if (!moviesList) return;
 
- 
-
     const mainMovie = moviesList[0];
 
       

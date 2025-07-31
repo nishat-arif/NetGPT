@@ -5,7 +5,10 @@ const gptSearch = createSlice({
 
     initialState: {
         lang: "eng",
-        showGptSearch : false
+        showGptSearch : false,
+        gptMovieSuggestions : null,
+        movieResults : null
+
     },
 
     reducers:{
@@ -17,9 +20,15 @@ const gptSearch = createSlice({
         changeLanguage : (state, actions) => {
             state.lang = actions.payload
             
+        }, 
+        addGptMovieResult:(state,action)=>{
+            const { gptMovieSuggestions, movieResults } = action.payload;
+            state.gptMovieSuggestions = gptMovieSuggestions
+            state.movieResults = movieResults
+
         }
     }
 })
 
-export const {toggleGptSearchPage , changeLanguage} = gptSearch.actions
+export const {toggleGptSearchPage , changeLanguage ,addGptMovieResult} = gptSearch.actions
 export default gptSearch.reducer
