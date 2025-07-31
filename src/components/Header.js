@@ -7,12 +7,15 @@ import {onAuthStateChanged } from "firebase/auth";
 import { useEffect } from 'react';
 import { addUser, removeUser } from '../utils/userSlice';
 import { useDispatch } from 'react-redux';
+import { toggleGptSearchPage } from "../utils/gptSearchSlice";
 
 const Header = () =>{
 
     const navigate = useNavigate();
     const dispatch = useDispatch();   
     const user = useSelector(store => store.user)
+    const gptPg = useSelector(store=>store.gptSearch)
+    
 
       useEffect(()=>{
         //instead of calling dispatch action (from redux) everytime while doing some user authentication , adding/updating/removing user
@@ -55,14 +58,22 @@ const Header = () =>{
         });
 
     }
+
+    const handleGptSearch = () =>{
+        dispatch(toggleGptSearchPage())
+
+    }
+
+
     return (
     <div className="absolute px-8 py-2 bg-gradient-to-b from-black z-50 w-screen flex justify-between">
         <img src={logo}
         alt="logo" className="w-44"/>
-       { user && <div className="flex m-4">
+       { user && <div className="flex items-center m-4">
+            <button className="bg-red-800 font-medium text-white rounded-md m-1 p-2 cursor-pointer" onClick={handleGptSearch}>{!gptPg.showGptSearch ? "GPT Search" : "Home"}</button>
             <img src={user.photoURL}
-            alt="userImage"  className="w-12 h-12"/>
-            <button className="mx-2 p-2 text-white font-bold cursor-pointer" onClick={handleSignOut}>Sign Out</button>
+            alt="userImage"  className="w-10 h-10 m-2 rounded-3xl"/>
+            <button className="bg-red-800 font-medium text-white rounded-md m-1 p-2 cursor-pointer"  onClick={handleSignOut}>Sign Out</button>
         </div>}
     </div>)
 }

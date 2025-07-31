@@ -51,14 +51,13 @@ const LoginForm =()=>{
                             }).catch((error) => {
                                     const errorCode = error.code;
                                     const errorMessage = error.message;
-                                    console.log(errorCode + errorMessage)
                             });
                 })
                 .catch((error) => {
                     const errorCode = error.code;
                     const errorMessage = error.message;
                     //setErrorMessage(errorCode + errorMessage)
-                    console.log(errorCode + errorMessage)
+
 
                 });
 
@@ -73,7 +72,6 @@ const LoginForm =()=>{
                     const errorCode = error.code;
                     const errorMessage = error.message;
                     //setErrorMessage(errorCode + errorMessage)
-                    console.log(errorCode + errorMessage)
                 });
 
         }

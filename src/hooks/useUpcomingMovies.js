@@ -12,9 +12,7 @@ const useUpcomingMovies = ()=>{
 
         fetch('https://api.themoviedb.org/3/movie/upcoming?page=1', OPTIONS)
         .then(res => res.json())
-        .then(res => {console.log(res)
-                     dispatch(addUpcomingMovies(res.results))
-        })
+        .then(res => dispatch(addUpcomingMovies(res.results)))
         .catch(err => console.error(err));
     
 
