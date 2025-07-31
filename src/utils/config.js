@@ -3,7 +3,7 @@ export const OPTIONS = {
   method: 'GET',
   headers: {
     accept: 'application/json',
-    Authorization: 'Bearer '+  process.env.REACT_APP_TMDB_KEY
+    Authorization: 'Bearer ' +  process.env.REACT_APP_TMDB_KEY
   }
 };
 
@@ -14,12 +14,12 @@ export const LANG = {
   },
   'hin' :{
     btnText : 'खोज',
-    placeholder : "आज आप क्या देखना चाहते हैं?"
+    placeholder : "शैली के आधार पर फिल्म की सिफारिश..."
   },
 
   'spa':{
     btnText : 'buscar',
-    placeholder : "Oye, ¿qué quieres ver hoy?"
+    placeholder : "Recomendación de películas basada en el género..."
   }
 
 }
