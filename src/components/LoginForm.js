@@ -3,8 +3,9 @@ import {validateLoginForm} from "../utils/validate"
 import { createUserWithEmailAndPassword , signInWithEmailAndPassword , updateProfile} from "firebase/auth";
 import { auth } from "../utils/firebase";
 import {  defaultUserImage} from "../utils/constants";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { toggleGptSearchPage} from "../utils/gptSearchSlice"
 
 const LoginForm =()=>{
 
@@ -15,6 +16,8 @@ const LoginForm =()=>{
     const password = useRef(null)
     const name = useRef(null)
     const dispatch = useDispatch();
+    const gptSearch = useSelector(store=>store.gptSearch)
+    
 
     const handleToggleForm =()=>{
         setIsSignInForm(!isSignInForm)
@@ -48,6 +51,8 @@ const LoginForm =()=>{
                                     displayName: displayName,
                                     photoURL : photoURL
                                 }));
+                                
+                                if(gptSearch.showGptSearch)dispatch(toggleGptSearchPage())
                             }).catch((error) => {
                                     const errorCode = error.code;
                                     const errorMessage = error.message;
