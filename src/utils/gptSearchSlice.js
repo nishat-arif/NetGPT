@@ -4,6 +4,7 @@ const gptSearch = createSlice({
     name: "gptSearch",
 
     initialState: {
+        lang: "eng",
         showGptSearch : false
     },
 
@@ -11,9 +12,14 @@ const gptSearch = createSlice({
         toggleGptSearchPage : (state, actions)=>{
             state.showGptSearch = !(state.showGptSearch)
 
+        },
+
+        changeLanguage : (state, actions) => {
+            state.lang = actions.payload
+            
         }
     }
 })
 
-export const {toggleGptSearchPage} = gptSearch.actions
+export const {toggleGptSearchPage , changeLanguage} = gptSearch.actions
 export default gptSearch.reducer
