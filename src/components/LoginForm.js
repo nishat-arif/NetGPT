@@ -2,8 +2,7 @@ import { useRef, useState } from "react"
 import {validateLoginForm} from "../utils/validate"
 import { createUserWithEmailAndPassword , signInWithEmailAndPassword , updateProfile} from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
-import { userImage,  defaultUserImage} from "../utils/constants";
+import {  defaultUserImage} from "../utils/constants";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
 
@@ -15,8 +14,6 @@ const LoginForm =()=>{
     const email = useRef(null)
     const password = useRef(null)
     const name = useRef(null)
-
-    const navigate = useNavigate();
     const dispatch = useDispatch();
 
     const handleToggleForm =()=>{

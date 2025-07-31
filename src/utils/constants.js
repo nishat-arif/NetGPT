@@ -6,3 +6,4 @@ export const userImage = "https://lh3.googleusercontent.com/-P0sUNlhaqZ8/AAAAAAA
 
 export const defaultUserImage = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0sUsrGbaqX4qT954jnbDXUyWS-YLKltxyEJ15yCaibXwtTgtVk67nWdc&s"
 
+export const posterPrefix = "https://image.tmdb.org/t/p/w500";
