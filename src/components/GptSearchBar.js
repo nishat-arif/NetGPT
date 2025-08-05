@@ -40,7 +40,7 @@ const GptSearchBar = () => {
                                         });
 
         if (!gptResults.choices) {
-        // TODO: Write Error Handling
+                console.log("error")
         }
 
         console.log(gptResults.choices?.[0]?.message?.content);

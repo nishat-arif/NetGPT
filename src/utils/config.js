@@ -10,16 +10,16 @@ export const OPTIONS = {
 export const LANG = {
   'eng':{
     btnText : 'search',
-    placeholder : "Movie recommendation based on genre..."
+    placeholder : "Movie recommendation..."
   },
   'hin' :{
     btnText : 'खोज',
-    placeholder : "शैली के आधार पर फिल्म की सिफारिश..."
+    placeholder : "फिल्म की सिफारिश..."
   },
 
   'spa':{
     btnText : 'buscar',
-    placeholder : "Recomendación de películas basada en el género..."
+    placeholder : "Recomendación de película..."
   }
 
 }
