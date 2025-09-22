@@ -1,7 +1,7 @@
 # NetGPT 🎬  
 An AI-powered movie recommendation app that suggests personalized films based on preferences.  
 
-[![Live Demo](https://img.shields.io/badge/Live-Demo-purple?style=for-the-badge&logo=netflix)](https://netgpt-f9def.web.app)  
+[![Live Demo](https://img.shields.io/badge/Live-Demo-purple?style=for-the-badge&logo=netflix)](https://netgpt-663c9.web.app/)  
 
 ---
 
@@ -16,11 +16,6 @@ An AI-powered movie recommendation app that suggests personalized films based on
 - 🎥 Personalized movie recommendations  
 - 🤖 Conversational AI suggestions with GPT  
 - ⚡ Fast, responsive UI  
-
----
-
-## 📸 Screenshots
-(Add UI screenshots here — homepage, recommendations screen, etc.)  
 
 ---
 
