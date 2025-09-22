@@ -2,10 +2,10 @@ import { useRef, useState } from "react"
 import {validateLoginForm} from "../utils/validate"
 import { createUserWithEmailAndPassword , signInWithEmailAndPassword , updateProfile} from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
-import { userImage,  defaultUserImage} from "../utils/constants";
-import { useDispatch } from "react-redux";
+import {  defaultUserImage} from "../utils/constants";
+import { useDispatch, useSelector } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { toggleGptSearchPage} from "../utils/gptSearchSlice"
 
 const LoginForm =()=>{
 
@@ -15,9 +15,9 @@ const LoginForm =()=>{
     const email = useRef(null)
     const password = useRef(null)
     const name = useRef(null)
-
-    const navigate = useNavigate();
     const dispatch = useDispatch();
+    const gptSearch = useSelector(store=>store.gptSearch)
+    
 
     const handleToggleForm =()=>{
         setIsSignInForm(!isSignInForm)
@@ -41,7 +41,7 @@ const LoginForm =()=>{
                     const user = userCredential.user;
                     updateProfile(user, {
                             displayName: name.current.value , 
-                            photoURL: userImage || defaultUserImage
+                            photoURL: defaultUserImage
                             }).then(() => {
                                 const {uid , email, displayName, photoURL}= auth.currentUser;
                                 // update user from auth to store and navigate user to browse page as well
@@ -51,19 +51,18 @@ const LoginForm =()=>{
                                     displayName: displayName,
                                     photoURL : photoURL
                                 }));
-                
-                                navigate("/browse")
+                                
+                                if(gptSearch.showGptSearch)dispatch(toggleGptSearchPage())
                             }).catch((error) => {
                                     const errorCode = error.code;
                                     const errorMessage = error.message;
-                                    console.log(errorCode + errorMessage)
                             });
                 })
                 .catch((error) => {
                     const errorCode = error.code;
                     const errorMessage = error.message;
                     //setErrorMessage(errorCode + errorMessage)
-                    console.log(errorCode + errorMessage)
+
 
                 });
 
@@ -72,14 +71,12 @@ const LoginForm =()=>{
             //signin
             signInWithEmailAndPassword(auth, email.current.value, password.current.value)
                 .then((userCredential) => {
-                    navigate("/browse")
                     
                 })
                 .catch((error) => {
                     const errorCode = error.code;
                     const errorMessage = error.message;
                     //setErrorMessage(errorCode + errorMessage)
-                    console.log(errorCode + errorMessage)
                 });
 
         }
